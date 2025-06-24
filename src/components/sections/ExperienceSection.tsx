@@ -112,7 +112,9 @@ export const ExperienceSection = () => {
             {portfolioData.experience.map((exp, index) => (
               <div
                 key={exp.company}
-                ref={el => (experienceRefs.current[index] = el)}
+                ref={(el) => {
+  experienceRefs.current[index] = el;
+}}
                 className={`flex mb-16 last:mb-0 ${
                   index % 2 === 0 ? "flex-row" : "flex-row-reverse"
                 } items-center`}
