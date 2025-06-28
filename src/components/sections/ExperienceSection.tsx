@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import { useRef, useEffect } from "react";
-import { motion } from "framer-motion";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Card, CardContent } from "@/components/ui/card";
-import { Briefcase } from "lucide-react";
-import AnimatedSection from "@/components/animations/AnimatedSection";
-import AnimatedText from "@/components/animations/AnimatedText";
-import { portfolioData } from "@/data/portfolio-data";
+import { useRef, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Card, CardContent } from '@/components/ui/card';
+import { Briefcase } from 'lucide-react';
+import AnimatedSection from '@/components/animations/AnimatedSection';
+import AnimatedText from '@/components/animations/AnimatedText';
+import { portfolioData } from '@/data/portfolio-data';
 
 export const ExperienceSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -22,21 +22,21 @@ export const ExperienceSection = () => {
     if (!sectionRef.current || !timelineRef.current) return;
 
     // Animate the timeline line drawing
-    const line = timelineRef.current.querySelector(".timeline-line");
+    const line = timelineRef.current.querySelector('.timeline-line');
 
     if (line) {
       gsap.fromTo(
         line,
         { height: 0 },
         {
-          height: "100%",
-          ease: "none",
+          height: '100%',
+          ease: 'none',
           scrollTrigger: {
             trigger: timelineRef.current,
-            start: "top 80%",
-            end: "bottom 20%",
-            scrub: 0.5,
-          },
+            start: 'top 80%',
+            end: 'bottom 20%',
+            scrub: 0.5
+          }
         }
       );
     }
@@ -51,17 +51,17 @@ export const ExperienceSection = () => {
         card,
         {
           x: 50 * direction,
-          opacity: 0,
+          opacity: 0
         },
         {
           x: 0,
           opacity: 1,
-          ease: "power2.out",
+          ease: 'power2.out',
           scrollTrigger: {
             trigger: card,
-            start: "top 80%",
-            toggleActions: "play none none reset",
-          },
+            start: 'top 80%',
+            toggleActions: 'play none none reset'
+          }
         }
       );
     });
@@ -98,10 +98,7 @@ export const ExperienceSection = () => {
         </AnimatedSection>
 
         {/* Timeline */}
-        <div
-          ref={timelineRef}
-          className="relative mt-20"
-        >
+        <div ref={timelineRef} className="relative mt-20">
           {/* Timeline line */}
           <div className="absolute top-0 left-1/2 w-0.5 h-full -translate-x-1/2 bg-border overflow-hidden">
             <div className="timeline-line absolute top-0 left-0 w-full bg-primary" />
@@ -109,13 +106,15 @@ export const ExperienceSection = () => {
 
           {/* Experience items */}
           <div className="relative">
-            {portfolioData.experience.map((exp, index) => (
+            {portfolioData.experience.map((exp, index) =>
               <div
                 key={exp.company}
-                ref={el => (experienceRefs.current[index] = el)}
-                className={`flex mb-16 last:mb-0 ${
-                  index % 2 === 0 ? "flex-row" : "flex-row-reverse"
-                } items-center`}
+                ref={el => {
+                  experienceRefs.current[index] = el;
+                }}
+                className={`flex mb-16 last:mb-0 ${index % 2 === 0
+                  ? 'flex-row'
+                  : 'flex-row-reverse'} items-center`}
               >
                 {/* Content */}
                 <div className="w-5/12">
@@ -127,13 +126,21 @@ export const ExperienceSection = () => {
                         transition={{ duration: 0.5 }}
                         viewport={{ once: true }}
                       >
-                        <h3 className="text-xl font-bold mb-1">{exp.position}</h3>
+                        <h3 className="text-xl font-bold mb-1">
+                          {exp.position}
+                        </h3>
                         <div className="text-sm text-muted-foreground mb-4">
-                          <span className="font-medium text-primary">{exp.company}</span>
+                          <span className="font-medium text-primary">
+                            {exp.company}
+                          </span>
                           <span className="mx-2">•</span>
-                          <span>{exp.period}</span>
+                          <span>
+                            {exp.period}
+                          </span>
                         </div>
-                        <p className="text-muted-foreground">{exp.description}</p>
+                        <p className="text-muted-foreground">
+                          {exp.description}
+                        </p>
                       </motion.div>
                     </CardContent>
                   </Card>
@@ -147,7 +154,7 @@ export const ExperienceSection = () => {
                     whileInView={{ scale: 1 }}
                     viewport={{ once: true }}
                     transition={{
-                      type: "spring",
+                      type: 'spring',
                       stiffness: 200,
                       damping: 10,
                       delay: 0.2
@@ -158,9 +165,11 @@ export const ExperienceSection = () => {
 
                   {/* Connecting line */}
                   <motion.div
-                    className={`absolute top-1/2 -mt-px h-0.5 bg-border ${
-                      index % 2 === 0 ? "right-0 left-1/2" : "left-0 right-1/2"
-                    }`}
+                    className={`absolute top-1/2 -mt-px h-0.5 bg-border ${index %
+                      2 ===
+                    0
+                      ? 'right-0 left-1/2'
+                      : 'left-0 right-1/2'}`}
                     initial={{ scaleX: 0 }}
                     whileInView={{ scaleX: 1 }}
                     viewport={{ once: true }}
@@ -171,7 +180,7 @@ export const ExperienceSection = () => {
                 {/* Empty space for alignment */}
                 <div className="w-5/12" />
               </div>
-            ))}
+            )}
           </div>
         </div>
 
@@ -186,7 +195,9 @@ export const ExperienceSection = () => {
           <p className="text-muted-foreground italic">
             "Every project has been a stepping stone in my development journey."
           </p>
-          <div className="mt-4 font-medium">— {portfolioData.developer.name}</div>
+          <div className="mt-4 font-medium">
+            — {portfolioData.developer.name}
+          </div>
         </motion.div>
       </div>
     </section>

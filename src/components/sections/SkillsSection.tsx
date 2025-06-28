@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import { useEffect, useRef } from "react";
-import { motion, useAnimation } from "framer-motion";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Progress } from "@/components/ui/progress";
-import AnimatedSection from "@/components/animations/AnimatedSection";
-import AnimatedText from "@/components/animations/AnimatedText";
-import { portfolioData } from "@/data/portfolio-data";
+import { useEffect, useRef } from 'react';
+import { motion, useAnimation } from 'framer-motion';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Progress } from '@/components/ui/progress';
+import AnimatedSection from '@/components/animations/AnimatedSection';
+import AnimatedText from '@/components/animations/AnimatedText';
+import { portfolioData } from '@/data/portfolio-data';
 
 export const SkillsSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -36,12 +36,12 @@ export const SkillsSection = () => {
         {
           width: `${portfolioData.skills[index].level}%`,
           duration: 1.5,
-          ease: "power3.out",
+          ease: 'power3.out',
           scrollTrigger: {
             trigger: element,
-            start: "top 80%",
-            toggleActions: "play none none reset",
-          },
+            start: 'top 80%',
+            toggleActions: 'play none none reset'
+          }
         }
       );
     });
@@ -89,7 +89,12 @@ export const SkillsSection = () => {
               <motion.span
                 className="inline-block mr-2"
                 animate={{ rotate: [0, 10, -10, 0] }}
-                transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, repeatType: "loop", repeatDelay: 5 }}
+                transition={{
+                  duration: 2,
+                  repeat: Number.POSITIVE_INFINITY,
+                  repeatType: 'loop',
+                  repeatDelay: 5
+                }}
               >
                 🚀
               </motion.span>
@@ -97,7 +102,7 @@ export const SkillsSection = () => {
             </h3>
 
             <div className="space-y-8">
-              {technicalSkills.map((skill, index) => (
+              {technicalSkills.map((skill, index) =>
                 <div key={skill.name} className="space-y-2">
                   <div className="flex justify-between items-center">
                     <motion.span
@@ -122,13 +127,15 @@ export const SkillsSection = () => {
 
                   <div className="h-2 w-full bg-muted rounded-full overflow-hidden">
                     <motion.div
-                      ref={el => (progressRefs.current[index] = el)}
+                      ref={el => {
+                        progressRefs.current[index] = el;
+                      }}
                       className="h-full bg-primary rounded-full"
                       style={{ width: 0 }}
                     />
                   </div>
                 </div>
-              ))}
+              )}
             </div>
           </motion.div>
 
@@ -143,7 +150,12 @@ export const SkillsSection = () => {
               <motion.span
                 className="inline-block mr-2"
                 animate={{ scale: [1, 1.2, 1] }}
-                transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, repeatType: "loop", repeatDelay: 5 }}
+                transition={{
+                  duration: 2,
+                  repeat: Number.POSITIVE_INFINITY,
+                  repeatType: 'loop',
+                  repeatDelay: 5
+                }}
               >
                 ⚡
               </motion.span>
@@ -151,7 +163,7 @@ export const SkillsSection = () => {
             </h3>
 
             <div className="space-y-8">
-              {frameworkSkills.map((skill, index) => (
+              {frameworkSkills.map((skill, index) =>
                 <div key={skill.name} className="space-y-2">
                   <div className="flex justify-between items-center">
                     <motion.span
@@ -176,20 +188,22 @@ export const SkillsSection = () => {
 
                   <div className="h-2 w-full bg-muted rounded-full overflow-hidden">
                     <motion.div
-                      ref={el => (progressRefs.current[index + 6] = el)}
+                      ref={el => {(progressRefs.current[index + 6] = el)}}
                       className="h-full bg-gradient-to-r from-primary to-blue-500 rounded-full"
                       style={{ width: 0 }}
                     />
                   </div>
                 </div>
-              ))}
+              )}
             </div>
           </motion.div>
         </div>
 
         {/* Animated Skill Pills */}
         <div className="mt-20">
-          <h3 className="text-2xl font-bold mb-8 text-center">Other Technologies</h3>
+          <h3 className="text-2xl font-bold mb-8 text-center">
+            Other Technologies
+          </h3>
 
           <motion.div
             className="flex flex-wrap justify-center gap-3"
@@ -200,12 +214,26 @@ export const SkillsSection = () => {
               hidden: {},
               visible: {
                 transition: {
-                  staggerChildren: 0.07,
-                },
-              },
+                  staggerChildren: 0.07
+                }
+              }
             }}
           >
-            {["HTML5", "CSS3", "SASS", "REST APIs", "GraphQL", "Webpack", "Git", "Docker", "AWS", "Vercel", "Firebase", "Figma", "Adobe XD"].map((tech, index) => (
+            {[
+              'HTML5',
+              'CSS3',
+              'SASS',
+              'REST APIs',
+              'GraphQL',
+              'Webpack',
+              'Git',
+              'Docker',
+              'AWS',
+              'Vercel',
+              'Firebase',
+              'Figma',
+              'Adobe XD'
+            ].map((tech, index) =>
               <motion.div
                 key={tech}
                 className="px-4 py-2 bg-muted rounded-full text-sm font-medium"
@@ -215,20 +243,20 @@ export const SkillsSection = () => {
                     opacity: 1,
                     y: 0,
                     transition: {
-                      type: "spring",
+                      type: 'spring',
                       stiffness: 100,
-                      damping: 10,
+                      damping: 10
                     }
-                  },
+                  }
                 }}
                 whileHover={{
                   scale: 1.05,
-                  backgroundColor: "rgba(var(--primary-rgb), 0.15)"
+                  backgroundColor: 'rgba(var(--primary-rgb), 0.15)'
                 }}
               >
                 {tech}
               </motion.div>
-            ))}
+            )}
           </motion.div>
         </div>
       </div>
