@@ -63,7 +63,7 @@ export const SkillsSection = () => {
         <div className="absolute bottom-10 right-10 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto">
         <AnimatedSection className="text-center mb-16">
           <AnimatedText
             text="My Skills"

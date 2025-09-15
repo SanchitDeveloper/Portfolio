@@ -89,7 +89,7 @@ export const HeroSection = () => {
         <div className="absolute top-1/2 left-1/2 w-64 h-64 rounded-full bg-purple-500/10 blur-3xl opacity-40 dark:opacity-20" />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto relative z-10">
         <motion.div
           className="flex flex-col items-center text-center"
           initial="hidden"

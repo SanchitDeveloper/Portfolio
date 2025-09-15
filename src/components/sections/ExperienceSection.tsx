@@ -83,7 +83,7 @@ export const ExperienceSection = () => {
         <div className="absolute bottom-20 right-20 w-72 h-72 bg-blue-500/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto relative z-10">
         <AnimatedSection className="text-center mb-16">
           <AnimatedText
             text="Work Experience"
