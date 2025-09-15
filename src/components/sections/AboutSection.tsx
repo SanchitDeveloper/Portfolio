@@ -105,7 +105,7 @@ export const AboutSection = () => {
               <div className="w-full aspect-square relative rounded-2xl overflow-hidden bg-muted">
                 {/* Placeholder for profile image - would use Image component with real image */}
                 <div className="absolute inset-0 flex items-center justify-center text-4xl font-bold text-muted-foreground">
-                  {portfolioData.developer.name.charAt(0)}
+                  <img src={portfolioData.about.image} alt={portfolioData.developer.name} className="h-auto max-w-full" />
                 </div>
 
                 {/* Floating elements animation */}

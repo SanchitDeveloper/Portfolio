@@ -221,18 +221,17 @@ export const SkillsSection = () => {
           >
             {[
               'HTML5',
-              'CSS3',
-              'SASS',
+              'Tailwind CSS',
               'REST APIs',
               'GraphQL',
               'Webpack',
               'Git',
-              'Docker',
               'AWS',
-              'Vercel',
               'Firebase',
-              'Figma',
-              'Adobe XD'
+              'Shopify',
+              'Shopify APIs',
+              'Shopify Polaris',
+              'Firebase Function'
             ].map((tech, index) =>
               <motion.div
                 key={tech}
